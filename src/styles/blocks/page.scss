@@ -1,0 +1,39 @@
+.page {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  line-height: 140%;
+  color: $dark-color;
+  background: #fff;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    position: relative;
+    margin: 0 auto;
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform, $transition-duraction;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0%);
+    }
+  }
+}
+
+.page__body--with-menu {
+  overflow: hidden;
+}

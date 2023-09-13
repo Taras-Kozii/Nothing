@@ -1,0 +1,44 @@
+.recommended {
+  &__body {
+    opacity: 0;
+  }
+
+  &__title {
+    width: max-content;
+    margin: 0 0 48px;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @extend %section-title;
+  }
+
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 40px;
+
+    @include onTablet {
+      row-gap: 56px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      justify-items: stretch;
+      column-gap: 24px;
+      row-gap: 0;
+    }
+  }
+
+  &__product {
+    position: relative;
+    @include onDesktop {
+      grid-column: span 4;
+    }
+  }
+
+  .scroll-anim-active &__body {
+    @include show-scroll-anim(tilt-in-top-1);
+  }
+}

@@ -1,7 +1,21 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "./utils/vars";
+@import "./utils/mixins";
+@import "./utils/_extends";
+@import "./effects/hover";
+@import "./effects/anim";
 
-body {
-  background: $c-gray;
-}
+@import "./blocks/page";
+@import "./blocks/container";
+
+@import "./blocks/header";
+@import "./blocks/top";
+@import "./blocks/menu";
+@import "./blocks/main";
+@import "./blocks/recommended";
+@import "./blocks/product";
+@import "./blocks//phone-bg";
+@import "./blocks/about";
+@import "./blocks/form";
+@import "./blocks/contact";
+@import "./blocks/category";
+@import "./blocks/button";

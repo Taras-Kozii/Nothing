@@ -1,0 +1,9 @@
+.main {
+  &__section {
+    margin-bottom: 96px;
+
+    @include onTablet {
+      margin-bottom: 120px;
+    }
+  }
+}

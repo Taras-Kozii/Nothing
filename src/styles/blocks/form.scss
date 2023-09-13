@@ -1,0 +1,50 @@
+.form {
+  max-width: 600px;
+  display: grid;
+  row-gap: 16px;
+
+  &__field {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 14px 16px;
+
+    outline: none;
+    background-color: $gray-bg;
+    border-radius: 8px;
+
+    border: 1px solid transparent;
+
+    &:hover {
+      border-color: #d5d7de;
+      color: $dark-color;
+    }
+
+    &:focus {
+      border-color: $dark-color;
+      color: $dark-color;
+      outline: none;
+    }
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+      color: $gray-color;
+    }
+
+    &--textarea {
+      height: 148px;
+      font-size: 14px;
+      resize: none;
+      border-radius: 8px;
+      font-family: inherit;
+    }
+  }
+
+  &__button {
+    position: relative;
+  }
+}

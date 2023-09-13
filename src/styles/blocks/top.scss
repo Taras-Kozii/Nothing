@@ -1,0 +1,118 @@
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 24px;
+
+  @include onTablet {
+    padding-block: 32px;
+  }
+
+  &__logo {
+    display: inline-block;
+    width: 125px;
+    height: 16px;
+    text-decoration: none;
+    opacity: 0;
+
+    @include onTablet {
+      width: 176px;
+      height: 24px;
+    }
+  }
+
+  &__logo-img {
+    max-width: 100%;
+    transition: all $transition-duraction ease;
+    @include img-in-block(cover);
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__icons {
+    display: flex;
+    column-gap: 24px;
+    opacity: 0;
+
+    @include onTablet {
+      column-gap: 32px;
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    text-decoration: none;
+    @include background(cover);
+    background-image: url("../images/icons/icon-menu.svg");
+    transition: all $transition-duraction ease;
+
+    @include onTablet {
+      width: 32px;
+      height: 32px;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &--menu {
+      &:hover {
+        background-image: url("../images/icons/icon-menu-hover.svg");
+      }
+    }
+
+    &--phone {
+      background-image: url("../images/icons/icon-phone.svg");
+
+      &::before {
+        content: "+1 234 555-55-55";
+        position: relative;
+        top: 50%;
+        transform: translate(-100%, -50%);
+
+        display: block;
+        width: max-content;
+
+        text-align: right;
+        font-family: Inter, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: $dark-color;
+
+        opacity: 0;
+        transition: all $transition-duraction ease;
+      }
+
+      &:hover::before {
+        opacity: 1;
+      }
+    }
+
+    &--close {
+      background-image: url("../images/icons/icon-close.svg");
+    }
+  }
+
+  .scroll-anim-active &__logo {
+    @include show-scroll-anim(tilt-in-left-1);
+  }
+
+  .scroll-anim-active &__icons {
+    @include show-scroll-anim(tilt-in-right-1);
+  }
+}
+
+.page__menu:target .top__logo {
+  opacity: 1;
+}
+
+.page__menu:target .top__icons {
+  opacity: 1;
+}

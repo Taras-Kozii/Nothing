@@ -1,0 +1,52 @@
+.header {
+  margin-bottom: 64px;
+  background-image: url("../images/header-bg.png");
+  @include onTablet {
+    margin-bottom: 120px;
+  }
+
+  @include background(cover);
+
+  &__body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__bottom {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include grid-desktop;
+  }
+
+  &__title {
+    width: fit-content;
+    margin: 0 0 40px;
+    opacity: 0;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 100%;
+
+    @include onTablet {
+      grid-column: span 4;
+      @include adaptive-property(font-size, 48, 56, 0);
+      margin-bottom: 65px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+      margin-bottom: 92px;
+    }
+  }
+
+  .scroll-anim-active &__title {
+    @include show-scroll-anim(slide-in-elliptic-bottom-fwd);
+    animation-delay: 0.8s;
+  }
+}
