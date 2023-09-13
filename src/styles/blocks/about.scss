@@ -1,0 +1,47 @@
+.about {
+  &__body {
+    @include grid-tablet;
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__title {
+    margin: 48px 0 24px;
+    width: max-content;
+    @extend %section-title;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin: 56px 0 0;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__text-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      margin: 56px 0 0;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .scroll-anim-active &__body {
+    @include show-scroll-anim(tilt-in-top-1);
+  }
+}

@@ -1,0 +1,68 @@
+@mixin three-d-card {
+  border-top: 1px solid rgba(255,255,255,0.5);
+  border-left: 1px solid rgba(255,255,255,0.5);
+  backdrop-filter: blur(50px);
+  transform-style: preserve-3d;
+  transform: perspective(500px);
+  border-radius: 0;
+  box-shadow: 20px 20px 50px transparent;
+  transition: all $transition-duraction ease;
+
+  &:hover {
+    box-shadow: 10px 10px 10px rgba(244, 227, 227, 0.5);
+  }
+  /*
+    add to html
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"
+      ></script>
+  */
+}
+
+@mixin blick {
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(185, 185, 207, 0.4),
+      transparent
+    );
+    transition: all $transition-duraction;
+  }
+
+  &:hover:before {
+    left: 100%;
+  }
+}
+
+@mixin underline-cursor {
+  position: relative;
+
+  &::after {
+    --scale: 0;
+
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    height: 1px;
+    background-color: $dark-color;
+
+    transform: scaleX(var(--scale));
+    transform-origin: var(--x);
+    transition: transform 0.3s cubic-bezier(0.51, 0.92, 0.24, 1);
+  }
+
+  &:hover::after {
+    --scale: 1;
+  }
+}

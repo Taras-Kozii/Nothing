@@ -1,0 +1,61 @@
+.contact {
+  &__body {
+    opacity: 0;
+    @include grid-desktop;
+  }
+
+  &__title {
+    margin: 0 0 48px;
+    width: max-content;
+    grid-column: 1 / 6;
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @extend %section-title;
+  }
+
+  &__form {
+    margin: 0 0 48px;
+    grid-column: 1 / 6;
+
+    @include onTablet {
+      margin-bottom: 80px;
+    }
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    grid-column: 7 / -1;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+  }
+
+  &__subtitle {
+    margin: 0 0 8px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 14px;
+    line-height: 140%;
+    color: #9393a3;
+  }
+
+  &__link {
+    font-size: 16px;
+    text-decoration: none;
+    color: $dark-color;
+    transition: all $transition-duraction ease;
+
+    &:hover {
+      font-weight: 600;
+    }
+  }
+
+  .scroll-anim-active &__body {
+    @include show-scroll-anim(tilt-in-top-2);
+  }
+}
